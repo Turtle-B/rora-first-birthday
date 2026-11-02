@@ -123,13 +123,6 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* 탭 애니메이션 */
-        .tab-btn.active {
-            background-color: #6A5ACD;
-            color: #ffffff;
-            box-shadow: 0 4px 12px rgba(106, 90, 205, 0.3);
-        }
-
         /* 라이트박스 애니메이션 */
         .lightbox-enter {
             animation: fadeIn 0.25s ease-out forwards;
@@ -173,7 +166,7 @@
                 </div>
             </div>
 
-            <!-- 메인 타이트 및 일시 -->
+            <!-- 메인 타이틀 및 일시 -->
             <h1 class="font-serif text-2xl sm:text-3xl font-bold text-gray-800 leading-snug mb-2">
                 오로라의 첫 번째 생일에<br>초대합니다 💕
             </h1>
@@ -212,7 +205,7 @@
             </div>
         </section>
 
-        <!-- 3. 인사말 섹션 (3가지 탭 선택 기능) -->
+        <!-- 3. 인사말 섹션 (감성형 단독 적용) -->
         <section class="px-6 mb-10 relative z-10">
             <div class="glass-card rounded-3xl p-6 relative">
                 <div class="text-center mb-5">
@@ -220,40 +213,17 @@
                     <h2 class="font-serif text-xl font-bold text-gray-800 mt-1">소중한 분들을 모십니다</h2>
                 </div>
 
-                <!-- 문구 탭 선택 버튼 -->
-                <div class="flex justify-center bg-gray-100/70 p-1 rounded-full mb-5 text-xs font-medium">
-                    <button onclick="switchTab(1)" id="tab-1" class="tab-btn active flex-1 py-1.5 rounded-full transition-all duration-200">감성형</button>
-                    <button onclick="switchTab(2)" id="tab-2" class="tab-btn flex-1 py-1.5 rounded-full text-gray-500 transition-all duration-200">위트형</button>
-                    <button onclick="switchTab(3)" id="tab-3" class="tab-btn flex-1 py-1.5 rounded-full text-gray-500 transition-all duration-200">정중형</button>
-                </div>
-
-                <!-- 탭 콘텐츠 내용 -->
-                <div class="text-center font-serif leading-relaxed text-sm text-gray-700 min-h-[120px] flex items-center justify-center px-2">
-                    <div id="tab-content-1" class="tab-content">
-                        오로라처럼 빛나는 아이로 자라나길 바라며...<br>
-                        어느덧 세상의 빛을 본 지 일 년이 되었습니다.<br><br>
-                        작고 작은 손으로 온 세상의 기쁨을 준 로라의 첫 생일,<br>
-                        소중한 분들과 기쁨을 함께 나누고 싶습니다. 💕
-                    </div>
-                    <div id="tab-content-2" class="tab-content hidden">
-                        오로라의 첫 번째 인생 파티에 초대합니다! 🎉<br><br>
-                        울고 웃으며 무럭무럭 자란 1년 동안<br>
-                        응원해 주신 분들께 감사 인사와 함께<br>
-                        맛있는 식사를 대접하고자 합니다.<br>
-                        오셔서 축하의 자리를 밝혀주세요! 😊
-                    </div>
-                    <div id="tab-content-3" class="tab-content hidden">
-                        저희 부부에게 선물처럼 찾아온 오로라가<br>
-                        어느덧 건강하게 자라 첫 돌을 맞이했습니다.<br><br>
-                        오늘이 있기까지 보내주신 사랑에 감사드리며,<br>
-                        아이가 바르고 지혜롭게 자랄 수 있도록<br>
-                        따뜻한 축복을 더해 주시면 감사하겠습니다. 🙏
-                    </div>
+                <!-- 감성형 인사말 본문 -->
+                <div class="text-center font-serif leading-relaxed text-sm text-gray-700 px-2 py-2">
+                    오로라처럼 빛나는 아이로 자라나길 바라며...<br>
+                    어느덧 세상의 빛을 본 지 일 년이 되었습니다.<br><br>
+                    작고 작은 손으로 온 세상의 기쁨을 준 로라의 첫 생일,<br>
+                    소중한 분들과 기쁨을 함께 나누고 싶습니다. 💕
                 </div>
 
                 <!-- 부모 이름 -->
                 <div class="mt-6 pt-4 border-t border-purple-100/60 text-center text-xs text-gray-600">
-                    <span class="font-medium text-gray-800">아빠</span> 000 · <span class="font-medium text-gray-800">엄마</span> 000의 아기 <span class="font-bold text-aurora-deepPurple">오로라</span>
+                    <span class="font-medium text-gray-800">아빠</span> 오현범 · <span class="font-medium text-gray-800">엄마</span> 유슬기의 아기 <span class="font-bold text-aurora-deepPurple">오로라</span>
                 </div>
             </div>
         </section>
@@ -266,7 +236,7 @@
                 <p class="text-xs text-gray-400 mt-1">사진을 터치하면 크게 보실 수 있습니다</p>
             </div>
 
-            <!-- Photo Grid (12장의 예시 아기 사진 갤러리) -->
+            <!-- Photo Grid (12장의 아기 사진 갤러리) -->
             <div class="grid grid-cols-3 gap-2" id="gallery-grid">
                 <!-- Javascript를 통하여 12장 슬롯 동적 생성 -->
             </div>
@@ -331,12 +301,12 @@
                     <p class="font-bold text-gray-800 mb-1">🚘 주차 안내</p>
                     <p class="leading-relaxed">호텔 내 고객 전용 주차장 무료 이용 가능 (하객 주차 등록 지원)</p>
                     <p class="font-bold text-gray-800 mb-1 pt-2">🚌 대중교통</p>
-                    <p class="leading-relaxed">지하철 3호선 동대입구역 6번 출구 (버턴 환승 또는 도보 15분)</p>
+                    <p class="leading-relaxed">지하철 3호선 동대입구역 6번 출구 (버스 환승 또는 도보 15분)</p>
                 </div>
             </div>
         </section>
 
-        <!-- 6. 방명록 섹션 (추후 구글시트/Supabase 연동을 위한 프리뷰 UI) -->
+        <!-- 6. 방명록 섹션 (구글 Apps Script 실시간 연동) -->
         <section class="px-6 mb-8 relative z-10">
             <div class="glass-card rounded-3xl p-6">
                 <div class="text-center mb-5">
@@ -351,27 +321,16 @@
                            class="w-full px-4 py-2.5 rounded-xl border border-purple-100 bg-white/90 text-xs focus:outline-none focus:ring-2 focus:ring-aurora-deepPurple/50">
                     <textarea id="guest-msg" rows="2" placeholder="로라의 첫돌을 축하하는 메시지를 적어주세요!" 
                               class="w-full px-4 py-2.5 rounded-xl border border-purple-100 bg-white/90 text-xs focus:outline-none focus:ring-2 focus:ring-aurora-deepPurple/50 resize-none"></textarea>
-                    <button onclick="addMockGuestbook()" class="w-full py-2.5 bg-aurora-deepPurple text-white font-bold rounded-xl text-xs shadow-md active:scale-95 transition-transform">
-                        축하 메시지 등록하기
+                    <button id="submit-btn" onclick="sendGuestbook()" class="w-full py-2.5 bg-aurora-deepPurple text-white font-bold rounded-xl text-xs shadow-md active:scale-95 transition-transform flex items-center justify-center gap-2">
+                        <span>축하 메시지 등록하기</span>
                     </button>
                 </div>
 
-                <!-- 방명록 리스트 미리보기 -->
+                <!-- 실시간 방명록 리스트 -->
                 <div id="guestbook-list" class="space-y-3 max-h-60 overflow-y-auto pr-1">
-                    <div class="bg-white/80 p-3 rounded-2xl text-xs border border-purple-50 shadow-sm">
-                        <div class="flex justify-between items-center mb-1">
-                            <span class="font-bold text-gray-800">이모 & 삼촌</span>
-                            <span class="text-[10px] text-gray-400">2026.11.01</span>
-                        </div>
-                        <p class="text-gray-600 leading-relaxed">우리 귀여운 로라야! 첫 번째 생일을 너무 축하해 💖 건강하고 오로라처럼 이쁘게 자라렴!</p>
-                    </div>
-
-                    <div class="bg-white/80 p-3 rounded-2xl text-xs border border-purple-50 shadow-sm">
-                        <div class="flex justify-between items-center mb-1">
-                            <span class="font-bold text-gray-800">할머니</span>
-                            <span class="text-[10px] text-gray-400">2026.10.31</span>
-                        </div>
-                        <p class="text-gray-600 leading-relaxed">사랑하는 우리 외손주 로라의 첫돌을 축하한다. 엄마 아빠 말 잘 듣고 예쁘게 자라자!</p>
+                    <div class="text-center py-6 text-xs text-gray-400">
+                        <i class="fa-solid fa-spinner fa-spin text-aurora-deepPurple text-base mb-2"></i>
+                        <p>방명록을 불러오는 중입니다...</p>
                     </div>
                 </div>
             </div>
@@ -428,6 +387,9 @@
     </div>
 
     <script>
+        // --- 구글 Apps Script 연동 URL ---
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby6o70CmuJlWV8YgdAhH5ObzRUj6tmrFqIJO41_RWnWGtwdgDmys-nzRApjiPI5D7dm9g/exec";
+
         // --- 1. 사진 갤러리 샘플 데이터 (12장) ---
         const samplePhotos = [
             "https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=800&q=80",
@@ -446,7 +408,6 @@
 
         let currentImgIndex = 0;
 
-        // 갤러리 그리드 생성
         function renderGallery() {
             const grid = document.getElementById('gallery-grid');
             grid.innerHTML = '';
@@ -459,7 +420,6 @@
             });
         }
 
-        // 라이트박스 열기
         function openLightbox(index) {
             currentImgIndex = index;
             updateLightbox();
@@ -467,7 +427,6 @@
             document.getElementById('lightbox').classList.add('flex');
         }
 
-        // 라이트박스 닫기
         function closeLightbox() {
             document.getElementById('lightbox').classList.add('hidden');
             document.getElementById('lightbox').classList.remove('flex');
@@ -489,20 +448,7 @@
             updateLightbox();
         }
 
-        // --- 2. 인사말 탭 전환 ---
-        function switchTab(tabNum) {
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('active');
-                btn.classList.add('text-gray-500');
-            });
-            document.querySelectorAll('.tab-content').forEach(content => content.classList.add('hidden'));
-
-            document.getElementById(`tab-${tabNum}`).classList.add('active');
-            document.getElementById(`tab-${tabNum}`).classList.remove('text-gray-500');
-            document.getElementById(`tab-content-${tabNum}`).classList.remove('hidden');
-        }
-
-        // --- 3. D-Day 카운트다운 (2026.11.07 12:00:00) ---
+        // --- 2. D-Day 카운트다운 (2026.11.07 12:00:00) ---
         const eventDate = new Date('2026-11-07T12:00:00+09:00').getTime();
 
         function updateDDay() {
@@ -528,7 +474,7 @@
             document.getElementById('d-day-secs').innerText = String(seconds).padStart(2, '0');
         }
 
-        // --- 4. 클립보드 복사 및 토스트 알림 ---
+        // --- 3. 클립보드 복사 및 알림 ---
         function showToast(msg) {
             const toast = document.getElementById('toast');
             toast.innerText = msg;
@@ -570,49 +516,94 @@
         }
 
         function shareKakao() {
-            // 카카오 SDK 미연동 시 링크 복사로 대체
             copyPageUrl();
         }
 
-        // --- 5. 임시 방명록 작성 기능 (프리뷰) ---
-        function addMockGuestbook() {
+        // --- 4. 구글 시트 연동 방명록 로드 및 제출 ---
+        function loadGuestbook() {
+            const listDiv = document.getElementById('guestbook-list');
+
+            fetch(GOOGLE_SCRIPT_URL)
+                .then(response => response.json())
+                .then(data => {
+                    listDiv.innerHTML = '';
+                    if (!data || data.length === 0) {
+                        listDiv.innerHTML = '<div class="text-center py-6 text-xs text-gray-400">첫 번째 축하 메시지를 작성해 보세요! 💖</div>';
+                        return;
+                    }
+
+                    // 최신순 정렬
+                    data.reverse().forEach(item => {
+                        const itemDiv = document.createElement('div');
+                        itemDiv.className = 'bg-white/80 p-3 rounded-2xl text-xs border border-purple-50 shadow-sm';
+                        
+                        let dateStr = "";
+                        if (item.time) {
+                            const d = new Date(item.time);
+                            if (!isNaN(d)) {
+                                dateStr = `${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`;
+                            }
+                        }
+
+                        itemDiv.innerHTML = `
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="font-bold text-gray-800">${item.name || '익명'}</span>
+                                <span class="text-[10px] text-gray-400">${dateStr}</span>
+                            </div>
+                            <p class="text-gray-600 leading-relaxed">${item.message}</p>
+                        `;
+                        listDiv.appendChild(itemDiv);
+                    });
+                })
+                .catch(error => {
+                    console.error('Guestbook Error:', error);
+                    listDiv.innerHTML = '<div class="text-center py-4 text-xs text-red-400">방명록을 불러오는데 실패했습니다.</div>';
+                });
+        }
+
+        function sendGuestbook() {
             const nameInput = document.getElementById('guest-name');
             const msgInput = document.getElementById('guest-msg');
+            const btn = document.getElementById('submit-btn');
 
             const name = nameInput.value.trim();
-            const msg = msgInput.value.trim();
+            const message = msgInput.value.trim();
 
-            if (!name || !msg) {
-                showToast('이름과 메시지를 모두 입력해주세요!');
+            if (!name || !message) {
+                showToast('이름과 축하 메시지를 모두 입력해주세요!');
                 return;
             }
 
-            const list = document.getElementById('guestbook-list');
-            const newCard = document.createElement('div');
-            newCard.className = "bg-white/80 p-3 rounded-2xl text-xs border border-purple-50 shadow-sm transition-all animate-fade-in";
-            
-            const today = new Date();
-            const dateStr = `${today.getFullYear()}.${String(today.getMonth()+1).padStart(2,'0')}.${String(today.getDate()).padStart(2,'0')}`;
-            
-            newCard.innerHTML = `
-                <div class="flex justify-between items-center mb-1">
-                    <span class="font-bold text-gray-800">${name}</span>
-                    <span class="text-[10px] text-gray-400">${dateStr}</span>
-                </div>
-                <p class="text-gray-600 leading-relaxed">${msg}</p>
-            `;
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> <span>등록 중...</span>';
 
-            list.prepend(newCard);
-            nameInput.value = '';
-            msgInput.value = '';
-            showToast('축하 메시지가 등록되었습니다! 💖');
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                body: JSON.stringify({ name: name, message: message })
+            })
+            .then(res => res.json())
+            .then(result => {
+                showToast('축하 메시지가 등록되었습니다! 💖');
+                nameInput.value = '';
+                msgInput.value = '';
+                loadGuestbook();
+            })
+            .catch(err => {
+                console.error(err);
+                showToast('등록 중 오류가 발생했습니다.');
+            })
+            .finally(() => {
+                btn.disabled = false;
+                btn.innerHTML = '<span>축하 메시지 등록하기</span>';
+            });
         }
 
-        // 초기화 함수
+        // 초기화
         window.onload = function() {
             renderGallery();
             updateDDay();
             setInterval(updateDDay, 1000);
+            loadGuestbook();
         };
     </script>
 </body>
