@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>오로라의 첫 번째 생일에 초대합니다 💖</title>
+    
+    <!-- 카카오톡 / SNS 공유용 메타 태그 (Open Graph) -->
+    <meta property="og:title" content="오로라의 첫돌에 초대합니다 ✨">
+    <meta property="og:description" content="2026년 11월 7일 토요일 오후 12시 | 반얀트리 클럽 앤 스파 서울 1F">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:type" content="website">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Noto Sans KR, Gowun Batang -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        aurora: {
+                            purple: '#E6E6FA',
+                            lavender: '#D8BFD8',
+                            green: '#E8F5E9',
+                            sage: '#C8E6C9',
+                            deepPurple: '#6A5ACD',
+                            textDark: '#332C4A'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans KR', 'sans-serif'],
+                        serif: ['Gowun Batang', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f7f6fb;
+            color: #332C4A;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* 몽환적인 핑크/보라/연두 오로라 배경 애니메이션 */
+        .aurora-bg {
+            background: linear-gradient(135deg, #f3e7e9 0%, #e3eeff 50%, #e8f5e9 100%);
+            position: relative;
+        }
+
+        .aurora-glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.6;
+            animation: float 10s infinite alternate ease-in-out;
+        }
+
+        .glow-1 {
+            top: -5%;
+            left: -10%;
+            width: 300px;
+            height: 300px;
+            background: rgba(216, 191, 216, 0.7);
+        }
+
+        .glow-2 {
+            top: 40%;
+            right: -10%;
+            width: 280px;
+            height: 280px;
+            background: rgba(200, 230, 201, 0.7);
+            animation-delay: -3s;
+        }
+
+        .glow-3 {
+            bottom: 10%;
+            left: 10%;
+            width: 320px;
+            height: 320px;
+            background: rgba(230, 230, 250, 0.8);
+            animation-delay: -6s;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(30px, 40px) scale(1.15); }
+        }
+
+        /* 글래스모피즘 카드 스타일 */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 8px 32px 0 rgba(106, 90, 205, 0.07);
+        }
+
+        /* 아기 사진 테두리 빛나는 효과 */
+        .aurora-border-frame {
+            position: relative;
+            padding: 6px;
+            border-radius: 9999px;
+            background: linear-gradient(135deg, #d8bfd8, #c8e6c9, #e6e6fa);
+            background-size: 200% 200%;
+            animation: gradientMove 4s ease infinite;
+            box-shadow: 0 10px 25px -5px rgba(216, 191, 216, 0.5);
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* 탭 애니메이션 */
+        .tab-btn.active {
+            background-color: #6A5ACD;
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(106, 90, 205, 0.3);
+        }
+
+        /* 라이트박스 애니메이션 */
+        .lightbox-enter {
+            animation: fadeIn 0.25s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* 토스트 메시지 */
+        #toast {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+    </style>
+</head>
+<body class="flex justify-center items-center min-h-screen p-0 sm:p-4">
+
+    <!-- 모바일 프레임 컨테이너 -->
+    <div class="w-full max-w-md aurora-bg min-h-screen sm:min-h-0 sm:rounded-3xl shadow-2xl overflow-hidden relative pb-24 border border-white/60">
+        
+        <!-- 오로라 빛 배경 레이어 -->
+        <div class="aurora-glow glow-1"></div>
+        <div class="aurora-glow glow-2"></div>
+        <div class="aurora-glow glow-3"></div>
+
+        <!-- 1. 메인 헤더 / 메인 비주얼 -->
+        <header class="relative pt-12 pb-8 px-6 text-center z-10">
+            <!-- 상단 뱃지 -->
+            <div class="inline-block px-4 py-1.5 rounded-full bg-white/80 backdrop-blur-md text-aurora-deepPurple text-xs font-semibold tracking-wider uppercase mb-6 shadow-sm border border-purple-100">
+                ✨ Rora's 1st Birthday Invite ✨
+            </div>
+
+            <!-- 아기 사진 메인 홀더 -->
+            <div class="w-52 h-52 mx-auto mb-6 aurora-border-frame">
+                <div class="w-full h-full rounded-full overflow-hidden bg-purple-50">
+                    <!-- 대표 아기 사진 (placeholder/샘플 이미지) -->
+                    <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=600&q=80" 
+                         alt="오로라 아기 사진" 
+                         class="w-full h-full object-cover">
+                </div>
+            </div>
+
+            <!-- 메인 타이트 및 일시 -->
+            <h1 class="font-serif text-2xl sm:text-3xl font-bold text-gray-800 leading-snug mb-2">
+                오로라의 첫 번째 생일에<br>초대합니다 💕
+            </h1>
+            <p class="text-xs text-gray-500 font-medium tracking-wide mb-4">
+                2025. 11. 22 태어남 👶
+            </p>
+
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-2xl glass-card text-xs sm:text-sm text-gray-700 font-medium">
+                <i class="fa-regular fa-calendar-check text-aurora-deepPurple"></i>
+                <span>2026년 11월 7일 토요일 오후 12:00</span>
+            </div>
+        </header>
+
+        <!-- 2. D-Day 카운트다운 섹션 -->
+        <section class="px-6 mb-8 relative z-10">
+            <div class="glass-card rounded-2xl p-5 text-center">
+                <p class="text-xs text-gray-500 font-medium mb-3">로라의 첫돌까지 남은 시간 ⏳</p>
+                <div class="grid grid-cols-4 gap-2 text-center">
+                    <div class="bg-white/80 rounded-xl p-2.5 shadow-sm border border-purple-50">
+                        <span id="d-day-days" class="block text-xl font-bold text-aurora-deepPurple">00</span>
+                        <span class="text-[10px] text-gray-400">DAYS</span>
+                    </div>
+                    <div class="bg-white/80 rounded-xl p-2.5 shadow-sm border border-purple-50">
+                        <span id="d-day-hours" class="block text-xl font-bold text-aurora-deepPurple">00</span>
+                        <span class="text-[10px] text-gray-400">HOURS</span>
+                    </div>
+                    <div class="bg-white/80 rounded-xl p-2.5 shadow-sm border border-purple-50">
+                        <span id="d-day-mins" class="block text-xl font-bold text-aurora-deepPurple">00</span>
+                        <span class="text-[10px] text-gray-400">MINS</span>
+                    </div>
+                    <div class="bg-white/80 rounded-xl p-2.5 shadow-sm border border-purple-50">
+                        <span id="d-day-secs" class="block text-xl font-bold text-aurora-deepPurple">00</span>
+                        <span class="text-[10px] text-gray-400">SECS</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. 인사말 섹션 (3가지 탭 선택 기능) -->
+        <section class="px-6 mb-10 relative z-10">
+            <div class="glass-card rounded-3xl p-6 relative">
+                <div class="text-center mb-5">
+                    <span class="text-xs font-bold tracking-widest text-aurora-deepPurple uppercase">GREETINGS</span>
+                    <h2 class="font-serif text-xl font-bold text-gray-800 mt-1">소중한 분들을 모십니다</h2>
+                </div>
+
+                <!-- 문구 탭 선택 버튼 -->
+                <div class="flex justify-center bg-gray-100/70 p-1 rounded-full mb-5 text-xs font-medium">
+                    <button onclick="switchTab(1)" id="tab-1" class="tab-btn active flex-1 py-1.5 rounded-full transition-all duration-200">감성형</button>
+                    <button onclick="switchTab(2)" id="tab-2" class="tab-btn flex-1 py-1.5 rounded-full text-gray-500 transition-all duration-200">위트형</button>
+                    <button onclick="switchTab(3)" id="tab-3" class="tab-btn flex-1 py-1.5 rounded-full text-gray-500 transition-all duration-200">정중형</button>
+                </div>
+
+                <!-- 탭 콘텐츠 내용 -->
+                <div class="text-center font-serif leading-relaxed text-sm text-gray-700 min-h-[120px] flex items-center justify-center px-2">
+                    <div id="tab-content-1" class="tab-content">
+                        오로라처럼 빛나는 아이로 자라나길 바라며...<br>
+                        어느덧 세상의 빛을 본 지 일 년이 되었습니다.<br><br>
+                        작고 작은 손으로 온 세상의 기쁨을 준 로라의 첫 생일,<br>
+                        소중한 분들과 기쁨을 함께 나누고 싶습니다. 💕
+                    </div>
+                    <div id="tab-content-2" class="tab-content hidden">
+                        오로라의 첫 번째 인생 파티에 초대합니다! 🎉<br><br>
+                        울고 웃으며 무럭무럭 자란 1년 동안<br>
+                        응원해 주신 분들께 감사 인사와 함께<br>
+                        맛있는 식사를 대접하고자 합니다.<br>
+                        오셔서 축하의 자리를 밝혀주세요! 😊
+                    </div>
+                    <div id="tab-content-3" class="tab-content hidden">
+                        저희 부부에게 선물처럼 찾아온 오로라가<br>
+                        어느덧 건강하게 자라 첫 돌을 맞이했습니다.<br><br>
+                        오늘이 있기까지 보내주신 사랑에 감사드리며,<br>
+                        아이가 바르고 지혜롭게 자랄 수 있도록<br>
+                        따뜻한 축복을 더해 주시면 감사하겠습니다. 🙏
+                    </div>
+                </div>
+
+                <!-- 부모 이름 -->
+                <div class="mt-6 pt-4 border-t border-purple-100/60 text-center text-xs text-gray-600">
+                    <span class="font-medium text-gray-800">아빠</span> 000 · <span class="font-medium text-gray-800">엄마</span> 000의 아기 <span class="font-bold text-aurora-deepPurple">오로라</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. 아기 사진 갤러리 (결혼식 청첩장 스타일 Grid + Lightbox) -->
+        <section class="px-6 mb-10 relative z-10">
+            <div class="text-center mb-5">
+                <span class="text-xs font-bold tracking-widest text-aurora-deepPurple uppercase">GALLERY</span>
+                <h2 class="font-serif text-xl font-bold text-gray-800 mt-1">로라의 성장의 순간들</h2>
+                <p class="text-xs text-gray-400 mt-1">사진을 터치하면 크게 보실 수 있습니다</p>
+            </div>
+
+            <!-- Photo Grid (12장의 예시 아기 사진 갤러리) -->
+            <div class="grid grid-cols-3 gap-2" id="gallery-grid">
+                <!-- Javascript를 통하여 12장 슬롯 동적 생성 -->
+            </div>
+        </section>
+
+        <!-- 5. 일시 및 장소 / 오시는 길 -->
+        <section class="px-6 mb-10 relative z-10">
+            <div class="glass-card rounded-3xl p-6">
+                <div class="text-center mb-6">
+                    <span class="text-xs font-bold tracking-widest text-aurora-deepPurple uppercase">LOCATION</span>
+                    <h2 class="font-serif text-xl font-bold text-gray-800 mt-1">오시는 길</h2>
+                </div>
+
+                <!-- 일시 및 장소 상세 -->
+                <div class="space-y-4 mb-6 text-sm">
+                    <div class="flex items-start gap-3">
+                        <div class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center text-aurora-deepPurple shrink-0 mt-0.5">
+                            <i class="fa-regular fa-clock"></i>
+                        </div>
+                        <div>
+                            <div class="font-bold text-gray-800">일시</div>
+                            <div class="text-gray-600">2026년 11월 7일 토요일 오후 12시</div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-3">
+                        <div class="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 shrink-0 mt-0.5">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <div class="font-bold text-gray-800">장소</div>
+                            <div class="text-gray-800 font-medium">반얀트리 클럽 앤 스파 서울 1층</div>
+                            <div class="text-xs text-gray-500 mt-0.5">서울특별시 중구 장충단로 60</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 주소 복사 버튼 -->
+                <button onclick="copyAddress('서울특별시 중구 장충단로 60')" class="w-full py-2.5 rounded-xl bg-white border border-gray-200 text-xs font-semibold text-gray-700 hover:bg-gray-50 transition-colors flex items-center justify-center gap-2 mb-4 shadow-sm">
+                    <i class="fa-regular fa-copy"></i>
+                    <span>주소 복사하기</span>
+                </button>
+
+                <!-- 지도 링크 버튼 (네이버지도 / 카카오맵) -->
+                <div class="grid grid-cols-2 gap-2">
+                    <a href="https://map.naver.com/v5/search/%EB%B0%98%EC%96%80%ED%8A%B8%EB%A6%AC%ED%81%B4%EB%9F%AC%EB%93%A4%EC%95%A4%EC%8A%A4%ED%8C%8C%EC%84%9C%EC%9A%B8" 
+                       target="_blank" 
+                       class="py-3 px-3 rounded-xl bg-[#03C75A] text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition-transform">
+                        <span class="bg-white text-[#03C75A] w-4 h-4 rounded-full flex items-center justify-center text-[10px] font-black">N</span>
+                        <span>네이버지도</span>
+                    </a>
+                    <a href="https://map.kakao.com/link/search/반얀트리클럽앤스파서울" 
+                       target="_blank" 
+                       class="py-3 px-3 rounded-xl bg-[#FEE500] text-[#191919] text-xs font-bold flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition-transform">
+                        <i class="fa-solid fa-comment text-xs"></i>
+                        <span>카카오맵</span>
+                    </a>
+                </div>
+
+                <!-- 교통편 / 주차 안내 -->
+                <div class="mt-6 pt-5 border-t border-purple-100 text-xs text-gray-600 space-y-2">
+                    <p class="font-bold text-gray-800 mb-1">🚘 주차 안내</p>
+                    <p class="leading-relaxed">호텔 내 고객 전용 주차장 무료 이용 가능 (하객 주차 등록 지원)</p>
+                    <p class="font-bold text-gray-800 mb-1 pt-2">🚌 대중교통</p>
+                    <p class="leading-relaxed">지하철 3호선 동대입구역 6번 출구 (버턴 환승 또는 도보 15분)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. 방명록 섹션 (추후 구글시트/Supabase 연동을 위한 프리뷰 UI) -->
+        <section class="px-6 mb-8 relative z-10">
+            <div class="glass-card rounded-3xl p-6">
+                <div class="text-center mb-5">
+                    <span class="text-xs font-bold tracking-widest text-aurora-deepPurple uppercase">GUESTBOOK</span>
+                    <h2 class="font-serif text-xl font-bold text-gray-800 mt-1">축하 방명록</h2>
+                    <p class="text-xs text-gray-400 mt-1">로라에게 따뜻한 축하의 한 마디를 남겨주세요</p>
+                </div>
+
+                <!-- 입력 폼 -->
+                <div class="space-y-2.5 mb-5">
+                    <input type="text" id="guest-name" placeholder="작성자 이름" 
+                           class="w-full px-4 py-2.5 rounded-xl border border-purple-100 bg-white/90 text-xs focus:outline-none focus:ring-2 focus:ring-aurora-deepPurple/50">
+                    <textarea id="guest-msg" rows="2" placeholder="로라의 첫돌을 축하하는 메시지를 적어주세요!" 
+                              class="w-full px-4 py-2.5 rounded-xl border border-purple-100 bg-white/90 text-xs focus:outline-none focus:ring-2 focus:ring-aurora-deepPurple/50 resize-none"></textarea>
+                    <button onclick="addMockGuestbook()" class="w-full py-2.5 bg-aurora-deepPurple text-white font-bold rounded-xl text-xs shadow-md active:scale-95 transition-transform">
+                        축하 메시지 등록하기
+                    </button>
+                </div>
+
+                <!-- 방명록 리스트 미리보기 -->
+                <div id="guestbook-list" class="space-y-3 max-h-60 overflow-y-auto pr-1">
+                    <div class="bg-white/80 p-3 rounded-2xl text-xs border border-purple-50 shadow-sm">
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="font-bold text-gray-800">이모 & 삼촌</span>
+                            <span class="text-[10px] text-gray-400">2026.11.01</span>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed">우리 귀여운 로라야! 첫 번째 생일을 너무 축하해 💖 건강하고 오로라처럼 이쁘게 자라렴!</p>
+                    </div>
+
+                    <div class="bg-white/80 p-3 rounded-2xl text-xs border border-purple-50 shadow-sm">
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="font-bold text-gray-800">할머니</span>
+                            <span class="text-[10px] text-gray-400">2026.10.31</span>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed">사랑하는 우리 외손주 로라의 첫돌을 축하한다. 엄마 아빠 말 잘 듣고 예쁘게 자라자!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. 푸터 -->
+        <footer class="text-center py-6 text-xs text-gray-400 relative z-10">
+            <p>Oh Rora 1st Birthday Party Invitation</p>
+            <p class="text-[10px] text-gray-300 mt-1">Made with Love for Baby Rora</p>
+        </footer>
+
+        <!-- 8. 하단 고정 공유 바 (Sticky Footer) -->
+        <div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-white/90 backdrop-blur-md border-t border-purple-100 p-3 px-5 z-40 flex items-center justify-between gap-3 shadow-lg">
+            <button onclick="shareKakao()" class="flex-1 py-3 bg-[#FEE500] text-[#191919] font-bold rounded-2xl text-xs flex items-center justify-center gap-2 shadow-sm active:scale-95 transition-transform">
+                <i class="fa-solid fa-comment text-sm"></i>
+                <span>카카오톡 공유</span>
+            </button>
+            <button onclick="copyPageUrl()" class="w-12 h-11 bg-gray-100 text-gray-700 rounded-2xl flex items-center justify-center hover:bg-gray-200 transition-colors shrink-0">
+                <i class="fa-solid fa-link text-sm"></i>
+            </button>
+        </div>
+
+    </div>
+
+    <!-- 사진 크게 보기 (라이트박스 모달) -->
+    <div id="lightbox" class="fixed inset-0 bg-black/90 z-50 hidden flex-col items-center justify-center p-4">
+        <!-- 닫기 버튼 -->
+        <button onclick="closeLightbox()" class="absolute top-5 right-5 text-white text-2xl w-10 h-10 flex items-center justify-center rounded-full bg-white/10">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <!-- 큰 이미지 -->
+        <div class="relative max-w-lg w-full h-[70vh] flex items-center justify-center">
+            <img id="lightbox-img" src="" alt="확대 아기 사진" class="max-w-full max-h-full object-contain rounded-lg lightbox-enter">
+            
+            <!-- 이전/다음 버튼 -->
+            <button onclick="prevImage()" class="absolute left-2 top-1/2 -translate-y-1/2 text-white bg-black/40 hover:bg-black/70 w-10 h-10 rounded-full flex items-center justify-center">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button onclick="nextImage()" class="absolute right-2 top-1/2 -translate-y-1/2 text-white bg-black/40 hover:bg-black/70 w-10 h-10 rounded-full flex items-center justify-center">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <!-- 슬라이드 카운터 -->
+        <div id="lightbox-counter" class="text-white text-xs mt-4 bg-white/20 px-3 py-1 rounded-full">
+            1 / 12
+        </div>
+    </div>
+
+    <!-- 복사 알림 토스트 메시지 -->
+    <div id="toast" class="fixed bottom-20 left-1/2 -translate-x-1/2 bg-gray-900/90 text-white px-5 py-2.5 rounded-full text-xs font-medium z-50 opacity-0 pointer-events-none transform translate-y-4 shadow-xl">
+        알림 메시지입니다.
+    </div>
+
+    <script>
+        // --- 1. 사진 갤러리 샘플 데이터 (12장) ---
+        const samplePhotos = [
+            "https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1544126592-807ade215a0b?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1596870230751-ebdfce98ec42?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1476703993599-0035a21b17a9?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1510154221590-ff63e90a136f?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1566004100631-35d015d6a491?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=800&q=80"
+        ];
+
+        let currentImgIndex = 0;
+
+        // 갤러리 그리드 생성
+        function renderGallery() {
+            const grid = document.getElementById('gallery-grid');
+            grid.innerHTML = '';
+            samplePhotos.forEach((imgUrl, index) => {
+                const item = document.createElement('div');
+                item.className = "aspect-square rounded-xl overflow-hidden bg-purple-100 cursor-pointer shadow-sm hover:opacity-90 transition-opacity border border-white/80";
+                item.innerHTML = `<img src="${imgUrl}" alt="로라 아기 사진 ${index + 1}" class="w-full h-full object-cover">`;
+                item.onclick = () => openLightbox(index);
+                grid.appendChild(item);
+            });
+        }
+
+        // 라이트박스 열기
+        function openLightbox(index) {
+            currentImgIndex = index;
+            updateLightbox();
+            document.getElementById('lightbox').classList.remove('hidden');
+            document.getElementById('lightbox').classList.add('flex');
+        }
+
+        // 라이트박스 닫기
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.add('hidden');
+            document.getElementById('lightbox').classList.remove('flex');
+        }
+
+        function updateLightbox() {
+            const img = document.getElementById('lightbox-img');
+            img.src = samplePhotos[currentImgIndex];
+            document.getElementById('lightbox-counter').innerText = `${currentImgIndex + 1} / ${samplePhotos.length}`;
+        }
+
+        function prevImage() {
+            currentImgIndex = (currentImgIndex - 1 + samplePhotos.length) % samplePhotos.length;
+            updateLightbox();
+        }
+
+        function nextImage() {
+            currentImgIndex = (currentImgIndex + 1) % samplePhotos.length;
+            updateLightbox();
+        }
+
+        // --- 2. 인사말 탭 전환 ---
+        function switchTab(tabNum) {
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+                btn.classList.add('text-gray-500');
+            });
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.add('hidden'));
+
+            document.getElementById(`tab-${tabNum}`).classList.add('active');
+            document.getElementById(`tab-${tabNum}`).classList.remove('text-gray-500');
+            document.getElementById(`tab-content-${tabNum}`).classList.remove('hidden');
+        }
+
+        // --- 3. D-Day 카운트다운 (2026.11.07 12:00:00) ---
+        const eventDate = new Date('2026-11-07T12:00:00+09:00').getTime();
+
+        function updateDDay() {
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            if (distance < 0) {
+                document.getElementById('d-day-days').innerText = "00";
+                document.getElementById('d-day-hours').innerText = "00";
+                document.getElementById('d-day-mins').innerText = "00";
+                document.getElementById('d-day-secs').innerText = "00";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('d-day-days').innerText = String(days).padStart(2, '0');
+            document.getElementById('d-day-hours').innerText = String(hours).padStart(2, '0');
+            document.getElementById('d-day-mins').innerText = String(minutes).padStart(2, '0');
+            document.getElementById('d-day-secs').innerText = String(seconds).padStart(2, '0');
+        }
+
+        // --- 4. 클립보드 복사 및 토스트 알림 ---
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.innerText = msg;
+            toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+            toast.classList.add('opacity-100', 'translate-y-0');
+
+            setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+            }, 2500);
+        }
+
+        function copyAddress(address) {
+            const textArea = document.createElement('textarea');
+            textArea.value = address;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                showToast('주소가 클립보드에 복사되었습니다! 📋');
+            } catch (err) {
+                showToast('복사에 실패했습니다.');
+            }
+            document.body.removeChild(textArea);
+        }
+
+        function copyPageUrl() {
+            const textArea = document.createElement('textarea');
+            textArea.value = window.location.href;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                showToast('초대장 링크가 복사되었습니다! ✨');
+            } catch (err) {
+                showToast('링크 복사에 실패했습니다.');
+            }
+            document.body.removeChild(textArea);
+        }
+
+        function shareKakao() {
+            // 카카오 SDK 미연동 시 링크 복사로 대체
+            copyPageUrl();
+        }
+
+        // --- 5. 임시 방명록 작성 기능 (프리뷰) ---
+        function addMockGuestbook() {
+            const nameInput = document.getElementById('guest-name');
+            const msgInput = document.getElementById('guest-msg');
+
+            const name = nameInput.value.trim();
+            const msg = msgInput.value.trim();
+
+            if (!name || !msg) {
+                showToast('이름과 메시지를 모두 입력해주세요!');
+                return;
+            }
+
+            const list = document.getElementById('guestbook-list');
+            const newCard = document.createElement('div');
+            newCard.className = "bg-white/80 p-3 rounded-2xl text-xs border border-purple-50 shadow-sm transition-all animate-fade-in";
+            
+            const today = new Date();
+            const dateStr = `${today.getFullYear()}.${String(today.getMonth()+1).padStart(2,'0')}.${String(today.getDate()).padStart(2,'0')}`;
+            
+            newCard.innerHTML = `
+                <div class="flex justify-between items-center mb-1">
+                    <span class="font-bold text-gray-800">${name}</span>
+                    <span class="text-[10px] text-gray-400">${dateStr}</span>
+                </div>
+                <p class="text-gray-600 leading-relaxed">${msg}</p>
+            `;
+
+            list.prepend(newCard);
+            nameInput.value = '';
+            msgInput.value = '';
+            showToast('축하 메시지가 등록되었습니다! 💖');
+        }
+
+        // 초기화 함수
+        window.onload = function() {
+            renderGallery();
+            updateDDay();
+            setInterval(updateDDay, 1000);
+        };
+    </script>
+</body>
+</html>
